@@ -16,7 +16,7 @@ contract SupplyChain is IUser, IFarmer, IProcessingPlant, IShipment {
   struct PacketHistory {
     HarvestDetails harvestDetails;
     BatchDetails batchDetails;
-    ConsignmentDetails consignmentDeails;
+    ConsignmentDetails consignmentDetails;
   }
   mapping(address => User) private userDetails;
   mapping(address => string[]) private farmerIdToHarvestIds;
@@ -270,7 +270,7 @@ contract SupplyChain is IUser, IFarmer, IProcessingPlant, IShipment {
 
     // Retrieve and set consignment details based on the batch ID
     string memory consignmentId = batchIdsToConsignmentDetails[batchId];
-    packetHistory.consignmentDeails = consignmentIdToConsignmentDetails[consignmentId];
+    packetHistory.consignmentDetails = consignmentIdToConsignmentDetails[consignmentId];
 
     // Retrieve and set harvest details based on the harvest ID in batch details
     string memory harvestId = packetHistory.batchDetails.harvestId;
